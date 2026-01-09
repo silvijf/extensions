@@ -4,6 +4,6 @@
 2. Unzip the file
 3. Go to chrome://extensions (Chrome) or edge://extensions (Edge)
 4. Click `load unpacked extension`
-5. Use the unzipped file
+5. Use the unzipped folder
 
 ### And you're done!
