@@ -20,6 +20,14 @@ body {
     outline: none;
 }
 
+#config:hover {
+    scale: 1.05;
+}
+
+#config:active {
+    scale: 0.95;
+}
+
 #shuffleKey {
     background-color: #414350;
     padding-left: 3px;
