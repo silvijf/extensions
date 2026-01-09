@@ -1,0 +1,33 @@
+body {
+    font-family: 'Fredoka';
+    overflow-x: hidden;
+    background-color: #313338;
+    color: white;
+    width: 200px;
+}
+
+#config {
+    background-color: #0e121d;
+    color: white;
+    border: 2px solid #ACACD5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#config:focus {
+    border-width: 3px;
+    outline: none;
+}
+
+#shuffleKey {
+    background-color: #414350;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 1px 0.1px #717380;
+}
+
+#warning {
+    display: none;
+    color: orange;
+}

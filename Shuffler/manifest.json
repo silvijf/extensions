@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Shuffler",
+  "description": "If you click a text, then click =, the text will be shuffled.",
+  "version": "2.0",
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "script.js"
+      ]
+    }
+  ]
+}
