@@ -13,7 +13,6 @@
     }
   ],
   "description": "If you click a text, then click =, the text will be shuffled.",
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxCkJMo4bePckKnKy3hQ233YhATgHFgAb1GAskCj9IlY8OnZU6R3ViPvSHLYBOi7J6hC7FCkAL+cqhbOKSvCWWVpkSLfFkzYEW5QzGSRJ1A7qGKITb9kzi+AmJBlD46qYOjjyAewIjYQYaMbghuf4k7XzF0PqG0pfVZZvWE9370X23Tn5qgv03+AspFcd8j5OrS8fuPH+kS+78KHCumNyeau8u/qbVJMSaoAHEZp86AAn3qxdVV9N6eTQzVI91TS0F5RfC7ildxSgqigjEINRllmVFa4sSBu7XkgMqNCrvDXk6OxuLNZwRffEpiNzZ5bEDbl0/DNUxJiWXlmF9e0U7wIDAQAB",
   "manifest_version": 3,
   "name": "Shuffler",
   "permissions": [
