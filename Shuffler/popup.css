@@ -36,7 +36,11 @@ body {
     box-shadow: 0px 3px 1px 0.1px #717380;
 }
 
-#warning {
+.warning {
     display: none;
     color: orange;
+}
+
+a {
+    color: rgb(160, 160, 218);
 }
