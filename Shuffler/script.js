@@ -1,4 +1,4 @@
-const bannedSites = ["chatgpt.com"];
+const bannedSites = [];
 var selectedElement;
 let shuffleKey;
 
@@ -15,21 +15,27 @@ function shuffle() {
     }
     selectedElement.textContent = string.join("");
 }
+
 function init() {
     let everyElement = document.querySelectorAll("*")
     everyElement.forEach((element) => {
-        if (element.textContent.length > 1 && element.children.length == 0) {
-            if (element.tagName != "input") {
+            if (
+                element.textContent.length > 1 && element.children.length == 0 &&
+                element.tagName != "input" && element.tagName != "textarea" &&
+                !element.isContentEditable
+            ) {
                 element.addEventListener("click", () => {
                     selectedElement = element;
                 })
             }
-        }
     })
 }
 
 document.addEventListener("keydown", (event) => {
-    if (event.key == shuffleKey) shuffle();
+    if (
+        event.key == shuffleKey &&
+        event.ctrlKey == false && event.shiftKey == false && event.metaKey == false && event.altKey == false
+        ) shuffle();
 })
 
 let thisSiteBanned = false;

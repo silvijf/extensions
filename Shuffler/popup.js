@@ -5,10 +5,24 @@ const newVersion = document.getElementById("newversion")
 let configuring = false;
 let block = false;
 
+const bannedKeys = [
+    "Control",
+    "Shift",
+    "Meta",
+    "Alt"
+]
+
 chrome.storage.local.get("shuffleKey", (result) => {
     if (result.shuffleKey == undefined) chrome.storage.local.set({ shuffleKey: "=" });
     else shuffleKeyEl.innerText = (result.shuffleKey == " ") ? "Space" : result.shuffleKey;
 })
+
+function isBannedKey(key) {
+    for (let i = 0; i < bannedKeys.length; i++) {
+        if (key == bannedKeys[i]) return true;
+    }
+    return false;
+}
 
 function canEndConfiguration(key, block) {
     if (key == "Enter") {
@@ -24,7 +38,8 @@ config.addEventListener("click", (e) => {
 })
 
 document.addEventListener("keyup", (e) => {
-    if (configuring && canEndConfiguration(e.key, block)) {
+    if (configuring && canEndConfiguration(e.key, block) && !isBannedKey(e.key)) {
+
         e.preventDefault()
         chrome.storage.local.set({ shuffleKey: e.key });
         shuffleKeyEl.innerText = (e.key == " ") ? "Space" : e.key;
