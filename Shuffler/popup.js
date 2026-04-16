@@ -4,6 +4,7 @@ const refresh = document.getElementById("refresh");
 const newVersion = document.getElementById("newversion")
 let configuring = false;
 let block = false;
+let enterPressed = false;
 
 const bannedKeys = [
     "Control",
@@ -24,23 +25,23 @@ function isBannedKey(key) {
     return false;
 }
 
-function canEndConfiguration(key, block) {
-    if (key == "Enter") {
-        if (block == false) return true;
-        else return false;
-    } else return true;
-}
-
-config.addEventListener("click", (e) => {
-    if (e.detail == 0 && !configuring) block = true;
+function configure() {
     config.innerText = "Press a key...";
     configuring = true;
+}
+
+config.addEventListener("pointerdown", configure)
+
+config.addEventListener("keyup", (e) => {
+    if ((e.key == "Enter" || e.key == " ") && !configuring) {
+        configure();
+        enterPressed = true;
+    }
 })
 
 document.addEventListener("keyup", (e) => {
-    if (configuring && canEndConfiguration(e.key, block) && !isBannedKey(e.key)) {
-
-        e.preventDefault()
+    if (configuring && !enterPressed && !isBannedKey(e.key)) {
+        e.preventDefault();
         chrome.storage.local.set({ shuffleKey: e.key });
         shuffleKeyEl.innerText = (e.key == " ") ? "Space" : e.key;
         config.innerText = "Configure shuffle key...";
@@ -48,6 +49,7 @@ document.addEventListener("keyup", (e) => {
         refresh.style.display = "block";
     }
     block = false;
+    enterPressed = false;
 })
 
 async function getVersion() {
@@ -55,7 +57,6 @@ async function getVersion() {
     let text = await file.text();
     let startIndex = text.indexOf('"version"') + 12;
     let endIndex = text.indexOf('"', startIndex);
-    console.log(text.substring(startIndex, endIndex), chrome.runtime.getManifest().version)
     if (text.substring(startIndex, endIndex) != chrome.runtime.getManifest().version) newVersion.style.display = "block";
 }
 
