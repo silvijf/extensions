@@ -1,6 +1,7 @@
 const config = document.getElementById("config");
 const shuffleKeyEl = document.getElementById("shuffleKey");
 const refresh = document.getElementById("refresh");
+const refreshButton = document.getElementById("refreshButton")
 const newVersion = document.getElementById("newversion")
 let configuring = false;
 let block = false;
@@ -29,6 +30,10 @@ function configure() {
     config.innerText = "Press a key...";
     configuring = true;
 }
+
+refreshButton.addEventListener("click", () => {
+    chrome.tabs.reload()
+})
 
 config.addEventListener("pointerdown", configure)
 

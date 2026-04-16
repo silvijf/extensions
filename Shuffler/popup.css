@@ -6,7 +6,7 @@ body {
     width: 200px;
 }
 
-#config {
+button {
     background-color: #0e121d;
     color: white;
     border: 2px solid #ACACD5;
@@ -15,17 +15,21 @@ body {
     transition: 100ms;
 }
 
-#config:focus {
-    border-width: 3px;
-    outline: none;
+#refreshButton {
+    color: orange;
 }
 
-#config:hover {
+button:hover {
     scale: 1.05;
 }
 
-#config:active {
+button:active {
     scale: 0.95;
+}
+
+button:focus {
+    border-width: 3px;
+    outline: none;
 }
 
 #shuffleKey {

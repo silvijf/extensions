@@ -12,15 +12,14 @@
       ]
     }
   ],
-  "description": "If you click a text, then click =, the text will be shuffled.",
+  "description": "If you click a text, then press =, the text will be shuffled.",
   "manifest_version": 3,
   "name": "Shuffler",
   "permissions": [
-    "tabs",
     "webNavigation",
     "activeTab",
     "scripting",
     "storage"
   ],
-  "version": "2.3"
+  "version": "2.4"
 }
