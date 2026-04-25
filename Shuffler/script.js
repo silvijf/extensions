@@ -40,6 +40,6 @@ if (!thisSiteBanned) {
             !target.isContentEditable
         ) {
             selectedElement = target;
-        }
+        } else selectedElement = null;
     })
 }
